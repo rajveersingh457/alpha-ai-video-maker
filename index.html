@@ -9,3 +9,37 @@
   <p>This is your first AI video website deployed from GitHub!</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alpha AI Token</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <h1>Buy AI Token for ₹10</h1>
+  <button id="rzp-button">Pay Now</button>
+
+  <script>
+    var options = {
+      "key": "rzp_test_ABC123XYZ", // 🔑 अपनी Razorpay Key यहाँ डालो
+      "amount": "1000", // ₹10 = 1000 paise
+      "currency": "INR",
+      "name": "Alpha AI",
+      "description": "Token Purchase",
+      "handler": function (response){
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+      },
+      "theme": {
+          "color": "#3399cc"
+      }
+    };
+
+    var rzp = new Razorpay(options);
+    document.getElementById('rzp-button').onclick = function(e){
+        rzp.open();
+        e.preventDefault();
+    }
+  </script>
+</body>
+</html>
